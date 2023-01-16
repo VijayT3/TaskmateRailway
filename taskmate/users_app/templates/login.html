@@ -1,0 +1,28 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+  <title>Log In - Taskmate</title>
+{% endblock title %}
+  
+{% block content %}
+  <div class="container">
+    <h1>Log In Here</h1>
+    <br>
+    
+    {% if messages %}
+      {% for message in messages  %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>         
+      {% endfor %}
+    {% endif %}
+
+    <form method="POST" class="mt-5">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form> 
+  </div>
+{% endblock content %}
